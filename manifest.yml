@@ -1,0 +1,10 @@
+applications:
+  - name: chuck-repo-balanced-1
+    path: chuck-repo/build/libs/chuck-repo.jar
+    buildpack: java_buildpack
+  - name: chuck-repo-balanced-2
+    path: chuck-repo/build/libs/chuck-repo.jar
+    buildpack: java_buildpack
+  - name: chuck-service-balanced
+    path: chuck-service/build/libs/chuck-service.jar
+    buildpack: java_buildpack

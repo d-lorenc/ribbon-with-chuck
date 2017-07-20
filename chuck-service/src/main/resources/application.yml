@@ -1,0 +1,3 @@
+chuck-repo:
+  ribbon:
+    listOfServers: chuck-repo-balanced-1.cfapps.io,chuck-repo-balanced-2.cfapps.io
