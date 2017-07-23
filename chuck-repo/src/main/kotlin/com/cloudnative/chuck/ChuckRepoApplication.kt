@@ -1,5 +1,6 @@
 package com.cloudnative.chuck
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.web.bind.annotation.GetMapping
@@ -21,7 +22,7 @@ val jokes = arrayOf(
 )
 
 @RestController
-class ChuckController {
+class ChuckController(@Value("\${vcap.application.name}") val appName: String) {
     @GetMapping("/jokes/random")
-    fun joke() = jokes[random.nextInt(jokes.size)]
+    fun joke() = "${jokes[random.nextInt(jokes.size)]} //from $appName"
 }
