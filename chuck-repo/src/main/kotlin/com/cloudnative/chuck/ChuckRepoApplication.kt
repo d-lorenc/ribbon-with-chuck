@@ -24,5 +24,10 @@ val jokes = arrayOf(
 @RestController
 class ChuckController(@Value("\${vcap.application.name}") val appName: String) {
     @GetMapping("/jokes/random")
-    fun joke() = "${jokes[random.nextInt(jokes.size)]} //from $appName"
+    fun joke() = JokeResponse(
+            joke = jokes[random.nextInt(jokes.size)],
+            repoName = appName
+    )
 }
+
+data class JokeResponse(val joke: String, val repoName: String)

@@ -28,8 +28,13 @@ class ChuckController(val chuckRepoClient: ChuckRepoClient) {
 
 @RibbonClient("chuck-repo")
 class ChuckRepoClient(val restTemplate: RestTemplate) {
-    fun joke(): String =
+    fun joke(): JokeResponse =
             restTemplate.getForObject(
                     "http://chuck-repo/jokes/random",
-                    String::class.java)
+                    JokeResponse::class.java)
 }
+
+data class JokeResponse(
+        val joke: String? = null,
+        val repoName: String? = null
+)
